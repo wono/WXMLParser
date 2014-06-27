@@ -1,5 +1,5 @@
 ##################
-#  W XML Parser  #
+#  WXML Parser  #
 ##################
 
     last modified:  2014/06/27
