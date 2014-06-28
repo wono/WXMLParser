@@ -5,7 +5,7 @@
     last modified:  2014/06/28
     first wrote:    2014/06/27
 
-    wono    (wonho lim : wono@live.com)
+    wono (wonho lim : wono@live.com)
     
 WXMLParser is a helper class to parse 1) a XML record file into a Java 
 object or 2) a Java object into a XML record file. It uses JAXB.
