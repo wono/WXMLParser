@@ -81,8 +81,7 @@ public class WXMLParser {
      *  @param <String> xml record file path including its extention
      *  @param <Object> record onbject to push into a xml file
      */
-    public static <T> void
-    PUSH ( String xmlPath, Object o )
+    public static <T> void PUSH ( String xmlPath, Object o )
     {
         try {
 
