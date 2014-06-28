@@ -27,8 +27,6 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  */
 
-import  static java.lang.System.out;
-
 import  java.io.File;
 import  java.util.ArrayList;
 
@@ -89,7 +87,6 @@ public class WXMLParser {
                                 .createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
             m.marshal(o, new File(xmlPath));
-            m.marshal(o, System.out);
                         
         } catch ( JAXBException e ) {
             
