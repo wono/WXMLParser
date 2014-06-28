@@ -34,10 +34,11 @@ import  java.util.ArrayList;
 
 import  javax.xml.bind.JAXBContext;
 import  javax.xml.bind.JAXBException;
+import  javax.xml.bind.Marshaller;
 import  javax.xml.bind.Unmarshaller;
 
 /**
- *  WXMLParser is a simple helper class to parse a XML record file 
+ *  WXMLParser is a tiny helper program to parse a XML record file
  *  into a Java object by using JAXB.
  *
  *  Here is an example to get an object from a XML record file:
@@ -50,9 +51,13 @@ public class WXMLParser {
     // Prevents being initialized.
     private WXMLParser(){}
     
-    public static <T> T GET ( String xmlPath, Class<T> c )
+    /**
+     *  @return <T> any type of object holding record pulled from xml
+     */ 
+    public static <T> T PULL ( String xmlPath, Class<T> c )
     {
         try {
+
             return  c.cast( JAXBContext.newInstance(c)
                                 .createUnmarshaller()
                                 .unmarshal(new File(xmlPath)) );
@@ -66,4 +71,29 @@ public class WXMLParser {
         return  null;
         
     }
+    
+    /**
+     *  @param <String> xml record file path including its extention
+     *  @param <Class<T>> type of class ( use like - MyClass.class )
+     *  @param <Object> onbject to push into xml record file
+     */
+    public static <T> void
+    PUSH( String xmlPath, Class<T> c, Object o )
+    {
+        try {
+
+            Marshaller m 
+                = JAXBContext.newInstance(c).createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
+            m.marshal(o, new File(xmlPath));
+            m.marshal(o, System.out);
+                        
+        } catch ( JAXBException e ) {
+            
+            e.printStackTrace();
+            
+        }
+        
+    }
+
 }
