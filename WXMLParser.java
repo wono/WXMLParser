@@ -38,11 +38,16 @@ import  javax.xml.bind.Marshaller;
 import  javax.xml.bind.Unmarshaller;
 
 /**
- *  WXMLParser is a tiny helper program to parse a XML record file
- *  into a Java object by using JAXB.
+ *  WXMLParser is a helper class to parse 1) a XML record file into a
+ *  Java object or 2) a Java object into a XML record file. It uses
+ *  JAXB.
  *
- *  Here is an example to get an object from a XML record file:
- *      MyClass o = WXMLParser.GET ( "MyXML.xml", MyClass.class );
+ *  Here is an example of getting an object from a XML record file:
+ *      MyClass o = WXMLParser.PULL ( "MyXML.xml", MyClass.class );
+ *
+ *  And, this is an example of extracting a Java object onto a XML 
+ *  file: 
+ *      XMLParser.PUSH ( "MyNewRecord.xml", myObject );
  *
  *  @author Wonho Lim (wono@live.com)
  */
@@ -74,16 +79,15 @@ public class WXMLParser {
     
     /**
      *  @param <String> xml record file path including its extention
-     *  @param <Class<T>> type of class ( use like - MyClass.class )
-     *  @param <Object> onbject to push into xml record file
+     *  @param <Object> record onbject to push into a xml file
      */
     public static <T> void
-    PUSH ( String xmlPath, Class<T> c, Object o )
+    PUSH ( String xmlPath, Object o )
     {
         try {
 
-            Marshaller m 
-                = JAXBContext.newInstance(c).createMarshaller();
+            Marshaller m = JAXBContext.newInstance(o.getClass())
+                                .createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
             m.marshal(o, new File(xmlPath));
             m.marshal(o, System.out);

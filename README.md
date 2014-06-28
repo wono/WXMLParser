@@ -7,14 +7,13 @@
 
     wono    (wonho lim : wono@live.com)
     
-WXMLParser is a simple helper class to parse 1) a XML record file into 
-a Java object or 2) a Java object into a XML record file. 
-It uses JAXB.
+WXMLParser is a helper class to parse 1) a XML record file into a Java 
+object or 2) a Java object into a XML record file. It uses JAXB.
 
-Here is an example to get an object from a XML record file:
+Here is an example of getting an object from a XML record file:
     
     Myclass o = WXMLParser.PUSH ( "MyRecord.xml", Myclass.class );
 
-And, this is an example to get a XML rocord file from a Java object:
+And, this is an example of extrating a Java object onto a XML file:
 
-    WXMLParser.PULL ( "MyNewRecord.xml", Myclass.class, myObject );
+    WXMLParser.PULL ( "MyNewRecord.xml", myObject );
