@@ -35,9 +35,9 @@ import  javax.xml.bind.Marshaller;
 import  javax.xml.bind.Unmarshaller;
 
 /**
- *  WXMLParser is a helper class to parse 1) a XML record file into a
- *  Java object or 2) a Java object into a XML record file. It uses
- *  JAXB.
+ *  WXMLParser is a helper class for using JAXB to parse 1) a XML 
+ *  record file into a Java object or 2) a Java object into a XML 
+ *  record file.
  *
  *  Here is an example of getting an object from a XML record file:
  *      MyClass o = WXMLParser.PULL ( "MyXML.xml", MyClass.class );
