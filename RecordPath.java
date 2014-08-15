@@ -5,12 +5,12 @@ import  java.nio.file.Paths;
 /**
  *  @author Wonho Lim
  */
-public class RecordPath {
+class RecordPath {
 
     /**
      *  @param  String xml record file path
      */
-    public static String GET ( String recordFilePath )
+    static String GET ( String recordFilePath )
     {
         return  URI.create(recordFilePath).normalize().getPath();
     }
