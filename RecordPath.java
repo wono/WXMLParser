@@ -8,12 +8,10 @@ import  java.nio.file.Paths;
 public class RecordPath {
 
     /**
-     *  @param  String xml record file name without its extention
+     *  @param  String xml record file path
      */
-    public static String GET ( String fileName )
+    public static String GET ( String recordFilePath )
     {
-        return  URI.create(
-                    String.format("../records/%s.xml", fileName)
-                ).normalize().getPath();
+        return  URI.create(recordFilePath).normalize().getPath();
     }
 }
