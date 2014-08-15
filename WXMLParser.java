@@ -31,9 +31,11 @@ public class WXMLParser {
     {
         try {
 
-            return  c.cast( JAXBContext.newInstance(c)
-                                .createUnmarshaller()
-                                .unmarshal(new File(xmlPath)) );
+            return c.cast( 
+                    JAXBContext.newInstance(c)
+                    .createUnmarshaller()
+                    .unmarshal(new File(RecordPath.GET(xmlPath))
+            );
             
         } catch ( JAXBException e ) {
             
@@ -54,9 +56,9 @@ public class WXMLParser {
         try {
 
             Marshaller m = JAXBContext.newInstance(o.getClass())
-                                .createMarshaller();
+                            .createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            m.marshal(o, new File(xmlPath));
+            m.marshal(o, new File(RecordPath.GET(xmlPath)));
                         
         } catch ( JAXBException e ) {
             
