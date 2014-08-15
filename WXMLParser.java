@@ -34,7 +34,7 @@ public class WXMLParser {
             return c.cast( 
                     JAXBContext.newInstance(c)
                     .createUnmarshaller()
-                    .unmarshal(new File(RecordPath.GET(xmlPath))
+                    .unmarshal(new File(RecordPath.GET(xmlPath)))
             );
             
         } catch ( JAXBException e ) {
