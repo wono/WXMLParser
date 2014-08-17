@@ -17,7 +17,7 @@ import  javax.xml.bind.Unmarshaller;
  *  file: 
  *      XMLParser.PUSH ( "MyNewRecord.xml", myObject );
  *
- *  @author Wonho Lim (wono@live.com)
+ *  @author Wonho Lim
  */
 public class WXMLParser {
     
